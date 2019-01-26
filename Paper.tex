@@ -28,8 +28,27 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 
+\usepackage{cleveref}
+\crefname{equation}{}{}          % Disable any prefix for equations
+\crefname{figure}{Fig.}{Figs.}   % Prefix for figures
+\crefname{table}{Table}{Tables}  % Prefix for figures
+
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
+
+% From Pandoc template
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% From Pandoc 2.2 onwards, see https://github.com/jgm/pandoc/issues/4384#issuecomment-367534223
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 %Nic:
 \providecommand{\abs}[1]{\lvert#1\rvert}
@@ -61,7 +80,7 @@
 
 \begin{document}
 
-\title{Greedy Least Squares Pursuit for sparse signal recovery}
+\title{Least-Squares Iterative Hard Thresholding for sparse recovery}
 
 
 \author{
@@ -82,30 +101,40 @@ contain equations like \(a = b\).
 \IEEEpeerreviewmaketitle
 
 
-\section{Introduction}\label{sec:intro}
+\hypertarget{sec:intro}{%
+\section{Introduction}\label{sec:intro}}
 
-We are in section \ref{sec:intro}.
+We are in section \cref{sec:intro}.
 
 Here is a reference {[}1{]}. So far so good.
 
-Some equation is presented in (\ref{eq:eq1}) below:
+\hypertarget{dfed}{%
+\section{dfed}\label{dfed}}
+
+Some equation is presented in \cref{eq:eq1} below:
+
 \begin{equation}x = 1 + 2\label{eq:eq1}\end{equation}
 
-A nice image is in Fig.~\ref{fig:test}.
+\hypertarget{dfed-1}{%
+\section{dfed}\label{dfed-1}}
+
+A nice image is in \Cref{fig:test}.
 
 \begin{figure}
+\hypertarget{fig:test}{%
 \centering
-\includegraphics[width=0.40000\textwidth]{Figure.pdf}
+\includegraphics[width=0.4\textwidth,height=\textheight]{Figure.pdf}
 \caption{Nume figura}\label{fig:test}
+}
 \end{figure}
 
-We can also have a nice looking table, Table~\ref{tbl:simple}. Just keep
-it small, you may get problems if it is larger than one page.
+We can also have a nice looking table, \Cref{tbl:simple}. Just keep it
+small, you may get problems if it is larger than one page.
 
 \hypertarget{tbl:simple}{}
 \begin{longtable}[]{@{}rlcl@{}}
-\caption{\label{tbl:simple}Demonstration of simple table syntax.
-}\tabularnewline
+\caption{\label{tbl:simple}Demonstration of simple table
+syntax.}\tabularnewline
 \toprule
 Right & Left & Center & Default\tabularnewline
 \midrule
@@ -120,14 +149,15 @@ Right & Left & Center & Default\tabularnewline
 \bottomrule
 \end{longtable}
 
-\section*{References}\label{references}
+\hypertarget{references}{%
+\section*{References}\label{references}}
 \addcontentsline{toc}{section}{References}
 
 \hypertarget{refs}{}
-\hypertarget{ref-Cleju2011ISSCS}{}
+\leavevmode\hypertarget{ref-Cleju2011ISSCS}{}%
 {[}1{]} N. Cleju, C. M. Fira, C. Barabasa, and L. Goras, ``Robust
 reconstruction of compressively sensed ECG signals,'' in \emph{Proc.
-isscs 2011}, 2011, pp. 507--510.
+ISSCS 2011}, 2011, pp. 507--510.
 
 %\bibliographystyle{IEEEtran}
 %\bibliography{IEEEfull,MyJfull,Biblio}

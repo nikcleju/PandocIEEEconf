@@ -1,5 +1,5 @@
 ---
-title: Greedy Least Squares Pursuit for sparse signal recovery
+title: Least-Squares Iterative Hard Thresholding for sparse recovery
 author: Nicolae Cleju
 affiliation: | 
 	| Faculty of Electronics, Telecommunications and Information Technology
@@ -12,24 +12,36 @@ abstract: >
 	and it can contain equations like $a = b$.
 bibliography: Biblio.bib
 # Customizing pandoc-crossref (remove them if you are happy with the defaults)
-figPrefix: Fig.
-tblPrefix: Table
+cref: True
+# Using Latex cleveref overrides custom prefixes for Latex output
+# Leave them here for other formats
+figPrefix: Fig., Figs.
+tblPrefix: Table, Tables
+
+# For pandoc-eqnos:
+eqnos-eqref: True  #not working, fixed, PR pending
+
 ---
 
 # Introduction {#sec:intro}
 
-We are in section [-@sec:intro].
+We are in section @sec:intro.
 
 Here is a reference [@Cleju2011ISSCS]. So far so good.
 
-Some equation is presented in ([-@eq:eq1]) below:
-$$x = 1 + 2$${#eq:eq1}
+# dfed
 
-A nice image is in @fig:test.
+Some equation is presented in @eq:eq1 below:
+
+$$x = 1 + 2$$ {#eq:eq1}
+
+# dfed
+
+A nice image is in @Fig:test.
 
 ![Nume figura](Figure.pdf){width=40% #fig:test}
 
-We can also have a nice looking table, @tbl:simple.
+We can also have a nice looking table, @Tbl:simple.
 Just keep it small, you may get problems if it is larger than one page.
 
   Right     Left     Center     Default

@@ -28,6 +28,11 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 
+\usepackage{cleveref}
+\crefname{equation}{}{}          % Disable any prefix for equations
+\crefname{figure}{Fig.}{Figs.}   % Prefix for figures
+\crefname{table}{Table}{Tables}  % Prefix for figures
+
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -35,6 +40,15 @@
 \providecommand{\tightlist}{%
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% From Pandoc 2.2 onwards, see https://github.com/jgm/pandoc/issues/4384#issuecomment-367534223
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 %Nic:
 \providecommand{\abs}[1]{\lvert#1\rvert}
